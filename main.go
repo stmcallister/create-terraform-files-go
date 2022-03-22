@@ -21,11 +21,6 @@ func main() {
 	// initialize the body of the new file object
 	rootBody := f.Body()
 
-	// set provider and access token values
-	provider := rootBody.AppendNewBlock("provider", []string{"pagerduty"})
-	providerBody := provider.Body()
-	providerBody.SetAttributeValue("token", cty.StringVal(os.Getenv("PAGERDUTY_TOKEN")))
-
 	// initialize terraform object and set provider version
 	tfBlock := rootBody.AppendNewBlock("terraform", nil)
 	tfBlockBody := tfBlock.Body()
